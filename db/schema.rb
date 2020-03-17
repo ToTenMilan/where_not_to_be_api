@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200317185438) do
+ActiveRecord::Schema.define(version: 20200317194224) do
 
   create_table "point_of_interests", force: :cascade do |t|
     t.string   "name"
@@ -21,9 +21,6 @@ ActiveRecord::Schema.define(version: 20200317185438) do
   end
 
   create_table "user_pois", force: :cascade do |t|
-    t.string   "name"
-    t.float    "lat"
-    t.float    "lng"
     t.integer  "user_id"
     t.integer  "point_of_interest_id"
     t.datetime "created_at",           null: false
@@ -36,6 +33,8 @@ ActiveRecord::Schema.define(version: 20200317185438) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "lat"
+    t.float    "lng"
   end
 
 end

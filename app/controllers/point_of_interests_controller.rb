@@ -4,7 +4,7 @@ class PointOfInterestsController < ApplicationController
     output = pois.map do |poi|
       {
         name: poi.name,
-        loc: [poi.lat, poi.lng],
+        loc: [lat: poi.lat, lng: poi.lng],
         density: 32
       }
     end
