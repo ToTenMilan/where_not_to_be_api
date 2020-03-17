@@ -6,7 +6,7 @@ class NearbyUsersController < ApplicationController
     max_distance = 170
     user = User.find(params[:user_id])
     user_loc = [user.lat, user.lng]
-    users = User.all.select do |nearby_user|
+    users = User.all.map do |nearby_user|
       nearby_user_loc = [nearby_user.lat, nearby_user.lng]
       if distance(user_loc, nearby_user_loc) < max_distance
         {
@@ -14,7 +14,7 @@ class NearbyUsersController < ApplicationController
           lng: nearby_user.lng
         }
       end
-    end
+    end.compact
     render json: users, status: 200
   end
 

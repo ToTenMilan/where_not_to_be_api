@@ -1,8 +1,20 @@
-`rails db:seed`
+```
+bundle install
+```
+
+```
+rails db:migrate
+```
+
+```
+rails db:seed
+```
 
 Endpoints:
 
-### user points of interest
+## 1. User points of interest
+
+##### return 5 points of interest of this user
 `http://localhost:3000/users/1/point_of_interests`
 
 ```json
@@ -61,6 +73,33 @@ Endpoints:
 ```
 
 
-### nearby users
-`http://localhost:3000/nearby_users?max_meters=100`
+## 2. Nearby users
 
+##### Out of 100 users, return just 27 that are no more than 170 meters from this user
+`http://localhost:3000/users/1/nearby_users`
+
+```json
+[
+  {
+    "lat": 50.04966,
+    "lng": 19.94475
+  },
+  {
+    "lat": 50.05003868420221,
+    "lng": 19.947055045766472
+  },
+  {
+    "lat": 50.05006230013177,
+    "lng": 19.94703378954854
+  },
+  // ...
+  {
+    "lat": 50.05002828278759,
+    "lng": 19.94705998298592
+  },
+  {
+    "lat": 50.05001253775421,
+    "lng": 19.947056024005562
+  }
+]
+```
