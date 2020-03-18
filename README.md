@@ -39,36 +39,7 @@ Endpoints:
     ],
     "density": 32
   },
-  {
-    "name": "Stara Synagoga",
-    "loc": [
-      {
-        "lat": 50.051515,
-        "lng": 19.948894
-      }
-    ],
-    "density": 32
-  },
-  {
-    "name": "Muzeum inzynierii miejskiej",
-    "loc": [
-      {
-        "lat": 50.049679,
-        "lng": 19.947022
-      }
-    ],
-    "density": 32
-  },
-  {
-    "name": "Studio Qulinarne",
-    "loc": [
-      {
-        "lat": 50.049328,
-        "lng": 19.947086
-      }
-    ],
-    "density": 32
-  }
+  // ...
 ]
 ```
 

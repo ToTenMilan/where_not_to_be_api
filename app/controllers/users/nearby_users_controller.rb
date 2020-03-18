@@ -1,7 +1,9 @@
 class Users::NearbyUsersController < ApplicationController
   def index
     max_distance = params[:max_distance] || 170
-    user = User.find(params[:user_id])
+
+    ### Alway look for John Tourist, demo user
+    user = User.john_tourist
     user_loc = [user.lat, user.lng]
 
     users = User.all.map do |nearby_user|

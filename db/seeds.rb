@@ -12,19 +12,28 @@
 # Stara Synagoga 50.051515, 19.948894
 # Muzeum inzynierii miejskiej 50.049679, 19.947022
 # Studio Qulinarne 50.049328, 19.947086
-voivodeships = %w[opolskie malopolskie dolnoslaskie mazowieckie slaskie]
+
 
 # clean seeds
 User.destroy_all
 PointOfInterest.delete_all
+Voivodeship.destroy_all
 
 
+voivodeship_names = %w[Opolskie Malopolskie Dolnoslaskie Mazowieckie Slaskie]
+voivodeship_names.each do |vv|
+  Voivodeship.create(name: vv)
+end
+voivodeships = Voivodeship.all
 
+
+# Demo user
 u = User.create(
   name: 'John Tourist',
   lat: 50.049660,
   lng: 19.944750,
-  voivodeship: 'Malopolsie'
+  points: 1500,
+  voivodeship: Voivodeship.find_by(name: 'Malopolskie')
 )
 
 u.point_of_interests << PointOfInterest.create(name: 'Bazylika bozego ciała w krakowie', lat: 50.049697, lng: 19.944797)
@@ -33,11 +42,18 @@ u.point_of_interests << PointOfInterest.create(name: 'Stara Synagoga', lat: 50.0
 u.point_of_interests << PointOfInterest.create(name: 'Muzeum inzynierii miejskiej', lat: 50.049679, lng: 19.947022)
 u.point_of_interests << PointOfInterest.create(name: 'Studio Qulinarne', lat: 50.049328, lng: 19.947086)
 
+
+
 100.times do
-  User.create(
+  u = User.create(
     name: FFaker::Name.name,
     lat: rand(50.050000..50.050100),
     lng: rand(19.947030..19.947100),
-    voivodeship: voivodeships[rand(5)]
+    points: rand(1000)
   )
+  u.voivodeship = voivodeships[rand(5)]
+  u.save
 end
+
+
+

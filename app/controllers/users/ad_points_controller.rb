@@ -1,13 +1,8 @@
 class Users::AdPointsController < ApplicationController
   def update
-    user = User.find(params[:user_id])
-
-    user.update(user_params)
+    ## PATCH request every 15 min to add point
+    user = User.john_tourist
+    points = user.points + 1
+    user.update(points: points)
   end
-
-  private
-
-    def user_params
-      params.require(:user).permit(:points)
-    end
 end

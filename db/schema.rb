@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200318185311) do
+ActiveRecord::Schema.define(version: 20200318195137) do
 
   create_table "point_of_interests", force: :cascade do |t|
     t.string   "name"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20200318185311) do
     t.index ["user_id"], name: "index_user_pois_on_user_id"
   end
 
+  create_table "user_voivodeships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "voivodeship_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_user_voivodeships_on_user_id"
+    t.index ["voivodeship_id"], name: "index_user_voivodeships_on_voivodeship_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",  null: false
@@ -36,6 +45,14 @@ ActiveRecord::Schema.define(version: 20200318185311) do
     t.float    "lat"
     t.float    "lng"
     t.string   "voivodeship"
+    t.integer  "points"
+  end
+
+  create_table "voivodeships", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

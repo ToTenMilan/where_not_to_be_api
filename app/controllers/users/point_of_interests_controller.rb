@@ -1,6 +1,7 @@
 class Users::PointOfInterestsController < ApplicationController
   def index
-    pois = User.find(params['user_id']).point_of_interests
+    user = User.john_tourist
+    pois = user.point_of_interests
     output = pois.map do |poi|
       {
         name: poi.name,
