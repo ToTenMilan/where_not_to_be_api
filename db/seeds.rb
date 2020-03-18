@@ -32,6 +32,8 @@ u = User.create(
   name: 'John Tourist',
   lat: 50.049660,
   lng: 19.944750,
+  home_lat: 50.049660,
+  home_lng: 19.944750,
   points: 1500,
   voivodeship: Voivodeship.find_by(name: 'Malopolskie')
 )
@@ -43,17 +45,15 @@ u.point_of_interests << PointOfInterest.create(name: 'Muzeum inzynierii miejskie
 u.point_of_interests << PointOfInterest.create(name: 'Studio Qulinarne', lat: 50.049328, lng: 19.947086)
 
 
-
 100.times do
   u = User.create(
     name: FFaker::Name.name,
     lat: rand(50.050000..50.050100),
     lng: rand(19.947030..19.947100),
+    home_lat: rand(50.050000..50.050100),
+    home_lng: rand(19.947030..19.947100),
     points: rand(1000)
   )
   u.voivodeship = voivodeships[rand(5)]
   u.save
 end
-
-
-
