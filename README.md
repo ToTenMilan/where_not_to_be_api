@@ -74,3 +74,15 @@ Endpoints:
   }
 ]
 ```
+
+## 3. Bump user points by 1 (i.e. to be requested by phone every 15 seconds)
+
+`http://localhost:3000/users/1/ad_points`
+
+## 4. Voivodeshipl total points
+
+`http://localhost:3000/voivodeships`
+
+## 5. create ad
+
+`POST http://localhost:3000/advertisement`
