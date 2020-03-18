@@ -1,11 +1,12 @@
-class NearbyUsersController < ApplicationController
+class Users::NearbyUsersController < ApplicationController
   def index
+    max_distance = params[:max_distance] || 170
     user = User.find(params[:user_id])
     user_loc = [user.lat, user.lng]
 
     users = User.all.map do |nearby_user|
       nearby_user_loc = [nearby_user.lat, nearby_user.lng]
-      if distance(user_loc, nearby_user_loc) < params[:max_distance]
+      if distance(user_loc, nearby_user_loc) < max_distance
         {
           lat: nearby_user.lat,
           lng: nearby_user.lng

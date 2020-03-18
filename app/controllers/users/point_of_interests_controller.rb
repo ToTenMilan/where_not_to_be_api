@@ -1,4 +1,4 @@
-class PointOfInterestsController < ApplicationController
+class Users::PointOfInterestsController < ApplicationController
   def index
     pois = User.find(params['user_id']).point_of_interests
     output = pois.map do |poi|
