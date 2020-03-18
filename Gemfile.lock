@@ -65,6 +65,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    pg (1.2.2)
     puma (3.12.4)
     rack (2.2.2)
     rack-test (0.6.3)
@@ -123,6 +124,7 @@ DEPENDENCIES
   byebug
   ffaker (~> 2.14)
   listen (~> 3.0.5)
+  pg (= 1.2.2)
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.2)
   spring
