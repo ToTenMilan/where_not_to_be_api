@@ -8,9 +8,10 @@ class MapCenter::PointOfInterestsController < ApplicationController
       poi_location = [poi.lat, poi.lng]
       if DistanceCalc.new(poi_location, map_center_location).call < max_distance
         [
-          poi_name: poi.name,
+          name: poi.name,
           lat: poi.lat,
-          lng: poi.lng
+          lng: poi.lng,
+          density: rand(5..20)
         ]
       end
     end.compact.flatten

@@ -17,6 +17,8 @@ rails db:seed
 ##### return 5 points of interest of this user (no matter the :id param, it will always return "John Tourist")
 GET `http://localhost:3000/users/1/point_of_interests`
 
+Returned density from 15 to 30
+
 ```json
 [
   {
@@ -65,19 +67,23 @@ GET `http://localhost:3000/users/1/nearby_users`
 
 ## get nearby Point of interests from selected map center
 
+Returned density from 5 to 20
+
 GET `http://localhost:3000/map_center/point_of_interests?max_distance=500&map_center_lat=50.052317&map_center_lng=19.951127`
 
 ```json
 [
   {
-    "poi_name": "Stara Synagoga",
+    "name": "Stara Synagoga",
     "lat": 50.051515,
-    "lng": 19.948894
+    "lng": 19.948894,
+    "density": 10
   },
   {
-    "poi_name": "Muzeum Inzynierii Miejskiej",
+    "name": "Muzeum Inzynierii Miejskiej",
     "lat": 50.049679,
-    "lng": 19.947022
+    "lng": 19.947022,
+    "density": 14
   },
   // ...
 ```
