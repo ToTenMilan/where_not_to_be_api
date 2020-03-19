@@ -1,6 +1,6 @@
 class Users::NearbyUsersController < ApplicationController
   def index
-    max_distance = params[:max_distance] || 170
+    max_distance = params[:max_distance].to_i || 170
 
     ### Alway look for John Tourist, demo user
     user = User.john_tourist

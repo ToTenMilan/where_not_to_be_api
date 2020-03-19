@@ -49,7 +49,8 @@ Returned density from 15 to 30
 ## Nearby users
 
 ##### Out of 100 users, return just 27 that are no more than 170 meters from this user
-GET `http://localhost:3000/users/1/nearby_users`
+
+GET `http://localhost:3000/users/1/nearby_users?max_distance=150`
 
 ```json
 [

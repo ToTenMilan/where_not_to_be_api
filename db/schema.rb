@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(version: 20200318211609) do
     t.datetime "updated_at",  null: false
     t.float    "lat"
     t.float    "lng"
-    t.float    "home_lat"
-    t.float    "home_lng"
     t.string   "voivodeship"
     t.integer  "points"
+    t.float    "home_lat"
+    t.float    "home_lng"
   end
 
   create_table "voivodeships", force: :cascade do |t|

@@ -106,11 +106,11 @@ PointOfInterest.create(name: "Riverside Blues by Cracow Moods", lat: 50.046344, 
 PointOfInterest.create(name: "Most Marszałka Józefa Piłsudskiego", lat: 50.045416, lng: 19.945052)
 PointOfInterest.create(name: "Barka Arkada", lat: 50.051348, lng: 19.933960)
 
-100.times do
+1000.times do
   u = User.create(
     name: FFaker::Name.name,
-    lat: rand(50.050000..50.050100),
-    lng: rand(19.947030..19.947100),
+    lat: rand(50.039000..50.055100),
+    lng: rand(19.930030..19.990100),
     home_lat: rand(50.050000..50.050100),
     home_lng: rand(19.947030..19.947100),
     points: rand(1000)
