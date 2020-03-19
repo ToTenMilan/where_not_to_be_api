@@ -10,12 +10,12 @@ rails db:migrate
 rails db:seed
 ```
 
-Endpoints:
+# Endpoints:
 
-## 1. User points of interest
+## User points of interest
 
-##### return 5 points of interest of this user
-`http://localhost:3000/users/1/point_of_interests`
+##### return 5 points of interest of this user (no matter the :id param, it will always return "John Tourist")
+GET `http://localhost:3000/users/1/point_of_interests`
 
 ```json
 [
@@ -44,10 +44,10 @@ Endpoints:
 ```
 
 
-## 2. Nearby users
+## Nearby users
 
 ##### Out of 100 users, return just 27 that are no more than 170 meters from this user
-`http://localhost:3000/users/1/nearby_users`
+GET `http://localhost:3000/users/1/nearby_users`
 
 ```json
 [
@@ -59,30 +59,37 @@ Endpoints:
     "lat": 50.05003868420221,
     "lng": 19.947055045766472
   },
-  {
-    "lat": 50.05006230013177,
-    "lng": 19.94703378954854
-  },
   // ...
-  {
-    "lat": 50.05002828278759,
-    "lng": 19.94705998298592
-  },
-  {
-    "lat": 50.05001253775421,
-    "lng": 19.947056024005562
-  }
 ]
 ```
 
-## 3. Bump user points by 1 (i.e. to be requested by phone every 15 seconds)
+## get nearby Point of interests from selected map center
 
-`http://localhost:3000/users/1/ad_points`
+GET `http://localhost:3000/map_center/point_of_interests?max_distance=500&map_center_lat=50.052317&map_center_lng=19.951127`
 
-## 4. Voivodeshipl total points
+```json
+[
+  {
+    "poi_name": "Stara Synagoga",
+    "lat": 50.051515,
+    "lng": 19.948894
+  },
+  {
+    "poi_name": "Muzeum Inzynierii Miejskiej",
+    "lat": 50.049679,
+    "lng": 19.947022
+  },
+  // ...
+```
 
-`http://localhost:3000/voivodeships`
+## Bump user points by 1 (i.e. to be requested by phone every 15 seconds while user is at home)
 
-## 5. create ad
+PATCH `http://localhost:3000/users/1/ad_points`
+
+## Voivodeshipl total points
+
+GET `http://localhost:3000/voivodeships`
+
+## create ad
 
 `POST http://localhost:3000/advertisement`
