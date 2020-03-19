@@ -100,3 +100,11 @@ GET `http://localhost:3000/voivodeships`
 ## create ad
 
 `POST http://localhost:3000/advertisement`
+
+## help requests
+
+GET /help_requests  - zwraca requesty stworzone przeze current usera
+GET /help_requests/nearby?max_distance=170&lat=50.052317&lng=19.951127  - zwraca requesty w pobliżu, parametry query opcjonalne, jeżeli nie podany lat i lng to brana jest lokalizacja domu current usera
+POST /help_requests  - dodawanie help requesta
+POST /help_requests/:id/cancel - anulowanie
+POST /help_requests/:id/done - zakończenie
