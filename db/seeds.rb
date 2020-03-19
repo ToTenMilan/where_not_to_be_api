@@ -18,6 +18,7 @@
 User.destroy_all
 PointOfInterest.delete_all
 Voivodeship.destroy_all
+HelpRequest.destroy_all
 
 
 voivodeship_names = %w[Opolskie Malopolskie Dolnoslaskie Mazowieckie Slaskie]
@@ -56,4 +57,24 @@ u.point_of_interests << PointOfInterest.create(name: 'Studio Qulinarne', lat: 50
   )
   u.voivodeship = voivodeships[rand(5)]
   u.save
+end
+
+users = User.all.sample(10)
+
+HelpRequest.create(user: User.john_tourist, title: 'Making masks for University Hospital in Cracow',
+                   description: FFaker::Lorem.paragraph, target: 3000, unit: 'masks', request_type: :crowd,
+                   lat: rand(50.050000..50.050100), lng: rand(19.947030..19.947100))
+HelpRequest.create(user: users.shift, title: 'Shopping for Mr. Eugen', time_from: '2020-03-21 14:30', time_to: '2020-03-21 18:30',
+                   description: FFaker::Lorem.paragraph, request_type: :single,
+                   lat: rand(50.050000..50.050100), lng: rand(19.947030..19.947100))
+HelpRequest.create(user: users.shift, title: 'Walk a dog', time_from: '2020-03-21 08:30', time_to: '2020-03-21 10:00',
+                   description: FFaker::Lorem.paragraph, request_type: :single,
+                   lat: rand(50.050000..50.050100), lng: rand(19.947030..19.947100))
+HelpRequest.create(user: users.shift, title: 'Buy a medicine', time_from: '2020-03-20 12:00', time_to: '2020-03-20 16:00',
+                   description: FFaker::Lorem.paragraph, request_type: :single,
+                   lat: rand(50.050000..50.050100), lng: rand(19.947030..19.947100))
+users.each do |user|
+  HelpRequest.create(user: user, title: FFaker::Lorem.sentence, request_type: :crowd,
+                     description: FFaker::Lorem.paragraph, target: rand(5000), unit: FFaker::Lorem.word,
+                     lat: rand(50.050000..50.050100), lng: rand(19.947030..19.947100))
 end
