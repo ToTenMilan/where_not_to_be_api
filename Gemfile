@@ -26,6 +26,8 @@ gem 'puma', '~> 3.0'
 # gem 'rack-cors'
 gem 'ffaker', '~> 2.14'
 
+gem 'blueprinter'
+
 group :production do
   gem 'pg', '1.2.2'
 end

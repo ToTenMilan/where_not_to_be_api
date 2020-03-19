@@ -12,6 +12,23 @@
 
 ActiveRecord::Schema.define(version: 20200318211609) do
 
+  create_table "help_requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "request_type", default: 0, null: false
+    t.string   "title",                    null: false
+    t.string   "description"
+    t.integer  "status",       default: 0, null: false
+    t.float    "lat"
+    t.float    "lng"
+    t.datetime "time_from"
+    t.datetime "time_to"
+    t.integer  "target"
+    t.string   "unit"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_help_requests_on_user_id"
+  end
+
   create_table "point_of_interests", force: :cascade do |t|
     t.string   "name"
     t.float    "lat"
