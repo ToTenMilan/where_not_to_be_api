@@ -108,3 +108,5 @@ GET /help_requests/nearby?max_distance=170&lat=50.052317&lng=19.951127  - zwraca
 POST /help_requests  - dodawanie help requesta
 POST /help_requests/:id/cancel - anulowanie
 POST /help_requests/:id/done - zakończenie
+
+

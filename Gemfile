@@ -28,6 +28,8 @@ gem 'ffaker', '~> 2.14'
 
 gem 'blueprinter'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 group :production do
   gem 'pg', '1.2.2'
 end
