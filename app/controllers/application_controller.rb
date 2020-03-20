@@ -8,4 +8,8 @@ class ApplicationController < ActionController::API
   def distance(loc1, loc2)
     CountDistance.new(loc1, loc2).call
   end
+
+  def max_distance
+    params[:max_distance].presence&.to_i || 170
+  end
 end
