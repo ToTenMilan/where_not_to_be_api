@@ -6,8 +6,6 @@ class HelpRequestsController < ApplicationController
   end
 
   def nearby
-    max_distance = params[:max_distance] || 170
-
     location = [params[:lat]&.to_f || current_user.lat, params[:lng]&.to_f || current_user.lng]
 
     requests = HelpRequest.requested.includes(:user).find_each.filter do |hr|

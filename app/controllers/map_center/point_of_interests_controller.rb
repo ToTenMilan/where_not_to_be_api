@@ -1,7 +1,6 @@
 class MapCenter::PointOfInterestsController < ApplicationController
   # GET /map_center/point_of_interests?max_distance=200&map_center_lat=50.101010&map_center_lng=19.101010
   def index
-    max_distance = params[:max_distance].to_i || 170
     map_center_location = [params[:map_center_lat].to_f, params[:map_center_lng].to_f]
 
     nearby_pois = PointOfInterest.all.map do |poi|
