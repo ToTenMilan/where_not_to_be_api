@@ -6,7 +6,7 @@ class Users::PointOfInterestsController < ApplicationController
       {
         name: poi.name,
         loc: [lat: poi.lat, lng: poi.lng],
-        density: poi.density + rand(2)
+        density: poi.density + rand(3)
       }
     end
     render json: output, status: 200
